@@ -79,7 +79,7 @@ class NoteDetailViewModel @Inject constructor(
         }
     }
 
-    fun initializeNewNote(): Note {
+    private fun initializeNewNote(): Note {
         return Note(
             id = 0,
             title = "",

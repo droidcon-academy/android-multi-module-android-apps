@@ -85,4 +85,7 @@ dependencies {
 
     //---------- Kotlinx Serialization --------
     implementation(libs.kotlinx.serialization.json)
+
+    //---------- Coroutines -------------------
+    implementation(libs.kotlinx.coroutines.test)
 }
