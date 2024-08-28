@@ -21,3 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "DroidyNote"
 include(":app")
+include(":domain")
+include(":data")
+include(":features:noteslist")
+include(":shared:ui")
+include(":features:notedetail")
+include(":shared:testing")
