@@ -1,4 +1,4 @@
-package com.droidcon.droidynote.ui.screens.home
+package com.droidcon.droidynote.ui.screens.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

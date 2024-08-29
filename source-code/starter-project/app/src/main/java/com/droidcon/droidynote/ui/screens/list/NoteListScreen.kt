@@ -1,4 +1,4 @@
-package com.droidcon.droidynote.ui.screens.home
+package com.droidcon.droidynote.ui.screens.list
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
@@ -85,7 +85,7 @@ fun NoteListScreen(
             } else if (uiState.notes.isEmpty()) {
                 EmptyHomeScreenContent()
             } else {
-                HomeScreenContent(
+                NoteListScreenContent(
                     uiState = uiState,
                     onNoteClick = onNavigateToDetail,
                     onUnselectNote = viewModel::unSelectNote,
@@ -107,7 +107,7 @@ fun EmptyHomeScreenContent(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun HomeScreenContent(
+fun NoteListScreenContent(
     uiState: NoteListUiState,
     onNoteClick: (Int) -> Unit,
     onSelectNote: (Note) -> Unit,

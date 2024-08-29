@@ -12,8 +12,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.droidcon.droidynote.ui.screens.detail.NoteDetailRoute
 import com.droidcon.droidynote.ui.screens.detail.NoteDetailScreen
-import com.droidcon.droidynote.ui.screens.home.NoteListRoute
-import com.droidcon.droidynote.ui.screens.home.NoteListScreen
+import com.droidcon.droidynote.ui.screens.list.NoteListRoute
+import com.droidcon.droidynote.ui.screens.list.NoteListScreen
 import com.droidcon.droidynote.ui.theme.DroidyNoteTheme
 import dagger.hilt.android.AndroidEntryPoint
 

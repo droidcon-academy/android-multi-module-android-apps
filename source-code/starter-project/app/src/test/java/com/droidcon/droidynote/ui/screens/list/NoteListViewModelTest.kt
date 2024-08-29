@@ -1,4 +1,4 @@
-package com.droidcon.droidynote.ui.screens.home
+package com.droidcon.droidynote.ui.screens.list
 
 import com.droidcon.droidynote.domain.repository.NoteRepository
 import com.droidcon.droidynote.fake.FakeNoteRepository
