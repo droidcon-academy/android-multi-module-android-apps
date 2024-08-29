@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.2"
+gradle = "8.5.2"
 hilt = "2.51.1"
 hiltNavigationCompose = "1.2.0"
 kotlin = "2.0.20"
@@ -7,6 +8,7 @@ coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
+kotlinGradlePlugin = "2.0.20"
 kotlinxSerializationJson = "1.7.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
@@ -16,8 +18,6 @@ room = "2.6.1"
 ksp = "2.0.20-1.0.24"
 kotlinxCoroutines = "1.8.0"
 kotlinSerialization = "2.0.0"
-appcompat = "1.7.0"
-material = "1.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,18 +44,21 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
+gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 
+## Plugins defined in build-logic
+droidcon-library = { id = "com.droidcon.library", version = "unspecified" }
+droidcon-library-compose = { id = "com.droidcon.library.compose", version = "unspecified" }
+droidcon-application = { id = "com.droidcon.application", version = "unspecified"}
 
