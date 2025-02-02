@@ -8,11 +8,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.droidcon.droidynote.features.notedetail.NoteDetailRoute
-import com.droidcon.droidynote.features.notedetail.noteDetailScreen
-import com.droidcon.droidynote.features.noteslist.NoteListRoute
-import com.droidcon.droidynote.features.noteslist.noteListScreen
+import com.droidcon.droidynote.features.notedetail.NoteDetailScreen
+import com.droidcon.droidynote.features.notelist.NoteListRoute
+import com.droidcon.droidynote.features.notelist.NoteListScreen
 import com.droidcon.droidynote.shared.ui.theme.DroidyNoteTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,20 +26,28 @@ class MainActivity : ComponentActivity() {
             DroidyNoteTheme {
                 Box(modifier = Modifier.safeDrawingPadding()) {
                     val navController = rememberNavController()
+
                     NavHost(
                         navController = navController,
                         startDestination = NoteListRoute
                     ) {
+                        composable<NoteListRoute> {
+                            NoteListScreen(
+                                onNavigateToDetail = { noteId ->
+                                    navController.navigate(
+                                        NoteDetailRoute(
+                                            noteId
+                                        )
+                                    )
+                                }
+                            )
+                        }
 
-                        noteListScreen(
-                            onNavigateToDetail = { noteId ->
-                                navController.navigate(NoteDetailRoute(noteId))
-                            }
-                        )
-
-                        noteDetailScreen(
-                            onNavigateBack = navController::navigateUp
-                        )
+                        composable<NoteDetailRoute> {
+                            NoteDetailScreen(
+                                onNavigateBack = navController::navigateUp
+                            )
+                        }
                     }
                 }
             }

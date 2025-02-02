@@ -3,6 +3,8 @@ package com.droidcon.droidynote.features.notedetail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.droidcon.droidynote.domain.model.Note
+import com.droidcon.droidynote.domain.repository.NoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,9 +15,9 @@ import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
-internal class NoteDetailViewModel @Inject constructor(
+class NoteDetailViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val noteRepository: com.droidcon.droidynote.domain.repository.NoteRepository
+    private val noteRepository: NoteRepository
 ) : ViewModel() {
 
 
@@ -63,7 +65,7 @@ internal class NoteDetailViewModel @Inject constructor(
         viewModelScope.launch {
             if (_uiState.value.canSave) {
                 val note = with(_uiState.value) {
-                    com.droidcon.droidynote.domain.model.Note(
+                    Note(
                         id = note.id,
                         title = noteTitle,
                         content = noteContent,
@@ -77,8 +79,8 @@ internal class NoteDetailViewModel @Inject constructor(
         }
     }
 
-    private fun initializeNewNote(): com.droidcon.droidynote.domain.model.Note {
-        return com.droidcon.droidynote.domain.model.Note(
+    private fun initializeNewNote(): Note {
+        return Note(
             id = 0,
             title = "",
             content = "",

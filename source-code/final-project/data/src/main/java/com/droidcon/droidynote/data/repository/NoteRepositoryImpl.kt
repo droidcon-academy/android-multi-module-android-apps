@@ -5,14 +5,13 @@ import com.droidcon.droidynote.data.enitity.NoteEntity
 import com.droidcon.droidynote.data.enitity.toDomainModel
 import com.droidcon.droidynote.data.enitity.toRoomEntity
 import com.droidcon.droidynote.domain.model.Note
-import com.droidcon.droidynote.domain.repository.NoteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class NoteRepositoryImpl @Inject constructor(
     private val noteDao: NoteDao
-) : NoteRepository {
+) : com.droidcon.droidynote.domain.repository.NoteRepository {
 
     override fun getAllNotes(): Flow<List<Note>> = noteDao.getAllNotes()
         .map { it.map(NoteEntity::toDomainModel) }

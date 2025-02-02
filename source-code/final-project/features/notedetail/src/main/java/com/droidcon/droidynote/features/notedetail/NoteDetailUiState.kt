@@ -1,6 +1,6 @@
 package com.droidcon.droidynote.features.notedetail
 
-internal data class NoteDetailUiState(
+data class NoteDetailUiState(
     val isLoading: Boolean = true,
     val note: com.droidcon.droidynote.domain.model.Note,
     val noteTitle: String = "",

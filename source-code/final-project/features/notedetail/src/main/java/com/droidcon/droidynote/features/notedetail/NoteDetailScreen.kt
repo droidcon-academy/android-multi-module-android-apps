@@ -25,22 +25,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
+import com.droidcon.droidynote.shared.ui.components.LoadingView
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class NoteDetailRoute(val noteId: Int?)
 
-fun NavGraphBuilder.noteDetailScreen(onNavigateBack: () -> Unit) {
-    composable<NoteDetailRoute> {
-        NoteDetailScreen(onNavigateBack = onNavigateBack)
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun NoteDetailScreen(
+fun NoteDetailScreen(
     onNavigateBack: () -> Unit,
     viewModel: NoteDetailViewModel = hiltViewModel()
 ) {
@@ -71,9 +64,9 @@ private fun NoteDetailScreen(
                 .padding(contentPadding)
         ) {
             if (uiState.isLoading) {
-                com.droidcon.droidynote.shared.ui.components.LoadingView()
+                LoadingView()
             } else {
-                NoteDetailScreenContent(
+                DetailScreenContent(
                     uiState = uiState,
                     onNoteTitleChange = viewModel::setNoteTitle,
                     onNoteContentChange = viewModel::setNoteContent,
@@ -86,7 +79,7 @@ private fun NoteDetailScreen(
 }
 
 @Composable
-private fun NoteDetailScreenContent(
+fun DetailScreenContent(
     uiState: NoteDetailUiState,
     onNoteTitleChange: (String) -> Unit,
     onNoteContentChange: (String) -> Unit,

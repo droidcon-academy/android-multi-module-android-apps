@@ -25,22 +25,22 @@ class ApplicationConventionPlugin : Plugin<Project> {
 
                 defaultConfig {
                     targetSdk = 35
-                    minSdk = 21
+                    minSdk = 24
                 }
 
                 compileOptions {
-                    sourceCompatibility = JavaVersion.VERSION_17
-                    targetCompatibility = JavaVersion.VERSION_17
+                    sourceCompatibility = JavaVersion.VERSION_21
+                    targetCompatibility = JavaVersion.VERSION_21
                 }
 
                 extensions.configure<JavaPluginExtension> {
-                    sourceCompatibility = JavaVersion.VERSION_17
-                    targetCompatibility = JavaVersion.VERSION_17
+                    sourceCompatibility = JavaVersion.VERSION_21
+                    targetCompatibility = JavaVersion.VERSION_21
                 }
 
                 configure<KotlinAndroidProjectExtension> {
                     with(compilerOptions) {
-                        jvmTarget.set(JvmTarget.JVM_17)
+                        jvmTarget.set(JvmTarget.JVM_21)
                     }
                 }
 
@@ -57,5 +57,4 @@ class ApplicationConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

@@ -12,7 +12,7 @@ class LibraryComposeConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.plugin.compose")
             }
             extensions.configure<LibraryExtension> {
-               configureCompose(this)
+                configureCompose(this)
             }
         }
     }

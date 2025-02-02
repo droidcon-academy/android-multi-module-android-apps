@@ -26,7 +26,7 @@ import java.util.Date
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NoteItemView(
-    note: Note,
+    note: com.droidcon.droidynote.domain.model.Note,
     isSelected: Boolean,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
@@ -53,10 +53,9 @@ fun NoteItemView(
             ),
         border = borderColor
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
         ) {
             if (note.title.isNotEmpty()) {
                 Text(

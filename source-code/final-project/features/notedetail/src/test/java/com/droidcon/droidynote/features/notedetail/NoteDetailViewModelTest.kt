@@ -1,8 +1,9 @@
 package com.droidcon.droidynote.features.notedetail
 
 import androidx.lifecycle.SavedStateHandle
-import com.droidcon.droidynote.shared.testing.fake.FakeNoteRepository
-import com.droidcon.droidynote.shared.testing.rules.MainDispatcherRule
+import com.droidcon.droidynote.domain.repository.NoteRepository
+import com.droidcon.droidynote.testing.fake.FakeNoteRepository
+import com.droidcon.droidynote.testing.rules.MainDispatcherRule
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -20,8 +21,7 @@ class NoteDetailViewModelTest {
     @get:Rule
     val dispatcherRule = MainDispatcherRule()
 
-    private val noteRepository: com.droidcon.droidynote.domain.repository.NoteRepository =
-        FakeNoteRepository()
+    private val noteRepository: NoteRepository = FakeNoteRepository()
 
 
     private lateinit var viewModel: NoteDetailViewModel

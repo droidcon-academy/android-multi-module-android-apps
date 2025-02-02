@@ -18,13 +18,13 @@ class LibraryConventionPlugin : Plugin<Project> {
                 compileSdk = 35
 
                 defaultConfig {
-                    minSdk = 21
+                    minSdk = 24
                 }
                 defaultConfig.targetSdk = 35
 
                 compileOptions {
-                    sourceCompatibility = JavaVersion.VERSION_17
-                    targetCompatibility = JavaVersion.VERSION_17
+                    sourceCompatibility = JavaVersion.VERSION_21
+                    targetCompatibility = JavaVersion.VERSION_21
                 }
                 defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

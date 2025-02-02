@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.droidcon.library)
 }
-
 android {
     namespace = "com.droidcon.droidynote.shared.testing"
 }

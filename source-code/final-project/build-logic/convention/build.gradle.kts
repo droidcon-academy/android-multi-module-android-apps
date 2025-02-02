@@ -7,13 +7,13 @@ plugins {
 group = "com.droidcon.buildlogic"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_17
+        jvmTarget = JvmTarget.JVM_21
     }
 }
 
@@ -31,6 +31,10 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        register("application") {
+            id = "com.droidcon.application"
+            implementationClass = "ApplicationConventionPlugin"
+        }
         register("library") {
             id = "com.droidcon.library"
             implementationClass = "LibraryConventionPlugin"
@@ -39,11 +43,6 @@ gradlePlugin {
         register("libraryCompose") {
             id = "com.droidcon.library.compose"
             implementationClass = "LibraryComposeConventionPlugin"
-        }
-
-        register("application") {
-            id = "com.droidcon.application"
-            implementationClass = "ApplicationConventionPlugin"
         }
     }
 }
